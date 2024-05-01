@@ -1,0 +1,10 @@
+input[type="number"] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+#svg-container {
+    display: block;
+    margin: 0 auto;
+}
