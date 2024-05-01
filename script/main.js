@@ -79,23 +79,29 @@ class Node {
   }
 }
 
-const root = new Node(50, width / 2, 50, 50);
-root.insert(25);
-root.insert(75);
-root.insert(12);
-root.insert(37);
-root.insert(87);
-root.insert(62);
-root.insert(99);
+let root = null;
+// root.insert(25);
+// root.insert(75);
+// root.insert(12);
+// root.insert(37);
+// root.insert(87);
+// root.insert(62);
+// root.insert(99);
 
-root.draw();
-console.log(root);
+// root.draw();
+// console.log(root);
 
-document.querySelector("#number-input").addEventListener("keydown", function(event) {
+const input = document.querySelector("#number-input"); 
+input.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         const inputNum = parseFloat(event.target.value);
-        console.log(inputNum, typeof inputNum);
-        root.insert(inputNum);
+        input.value = '';
+
+        if (root === null) {
+            root = new Node(inputNum, width / 2, 50, 50);
+        } else {
+            root.insert(inputNum);
+        }
         root.clear();
         root.draw();
     }
