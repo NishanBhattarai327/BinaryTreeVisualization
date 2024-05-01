@@ -36,16 +36,6 @@ function handleDragEnd() {
     draggedNode = null;
 }
 
-function updateSvgDimensions() {
-    // // Get the bounding box of all nodes in the tree
-    // const svgBoundingBox = svgContainer.getBBox();
-
-    // // Set the SVG width and height to the bounding box dimensions
-    // svgContainer.setAttribute("width", svgBoundingBox.width + 20); // Add some padding
-    // svgContainer.setAttribute("height", svgBoundingBox.height + 20); // Add some padding
-}
-
-
 class Node {
   constructor(value, x, y, radius) {
     this.value = value;
@@ -148,18 +138,16 @@ class Node {
 }
 
 
-root =  new Node(45, width / 2, 50, 50);
-root.insert(25);
-root.insert(75);
-root.insert(12);
-root.insert(37);
-root.insert(87);
-root.insert(62);
-root.insert(99);
+// root =  new Node(45, width / 2, 50, 50);
+// root.insert(25);
+// root.insert(75);
+// root.insert(12);
+// root.insert(37);
+// root.insert(87);
+// root.insert(62);
+// root.insert(99);
 
-root.draw();
-updateSvgDimensions();
-// console.log(root);
+// root.draw();
 
 const input = document.querySelector("#number-input"); 
 input.addEventListener("keydown", function(event) {
@@ -174,7 +162,5 @@ input.addEventListener("keydown", function(event) {
         }
         root.clear();
         root.draw();
-        updateSvgDimensions();
-        console.log(treeHeight);
     }
 });
