@@ -36,6 +36,16 @@ function handleDragEnd() {
     draggedNode = null;
 }
 
+function updateSvgDimensions() {
+    // // Get the bounding box of all nodes in the tree
+    // const svgBoundingBox = svgContainer.getBBox();
+
+    // // Set the SVG width and height to the bounding box dimensions
+    // svgContainer.setAttribute("width", svgBoundingBox.width + 20); // Add some padding
+    // svgContainer.setAttribute("height", svgBoundingBox.height + 20); // Add some padding
+}
+
+
 class Node {
   constructor(value, x, y, radius) {
     this.value = value;
@@ -92,6 +102,7 @@ class Node {
     const text = document.createElementNS(svgNS, "text");
     text.setAttribute("x", this.x);
     text.setAttribute("y", this.y);
+    text.setAttribute("font-size", this.radius);
     text.setAttribute("text-anchor", "middle");
     text.setAttribute("dominant-baseline", "middle");
     text.textContent = this.value.toString();
@@ -147,6 +158,7 @@ root.insert(62);
 root.insert(99);
 
 root.draw();
+updateSvgDimensions();
 // console.log(root);
 
 const input = document.querySelector("#number-input"); 
@@ -162,6 +174,7 @@ input.addEventListener("keydown", function(event) {
         }
         root.clear();
         root.draw();
+        updateSvgDimensions();
         console.log(treeHeight);
     }
 });
