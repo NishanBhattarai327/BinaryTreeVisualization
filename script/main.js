@@ -68,12 +68,12 @@ class Node {
       } else {
         this.left.insert(value);
       }
-    } else {
+    } else if (value > this.value) {
       if (this.right === null) {
         this.right = new Node(value, this.x + this.radius * 2, this.y + this.radius * 2, this.radius * 0.75);
         this.right.depth = this.depth + 1;
         treeHeight = Math.max(treeHeight, this.right.depth);
-    } else {
+      } else {
         this.right.insert(value);
       }
     }
